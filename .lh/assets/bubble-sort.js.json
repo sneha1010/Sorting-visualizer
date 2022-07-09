@@ -1,0 +1,82 @@
+{
+    "sourceFile": "assets/bubble-sort.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1655143355462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655146329268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n async function bubbleSort() {\r\n     var i, j;\r\n     await sleep(delay);\r\n-\r\n+     halt=false;\r\n     for(i = 0; i < size - 1; i++) {\r\n         for(j = 0; j < size - i - 1; j++) {\r\n             await sleep(delay);\r\n \r\n@@ -13,14 +13,17 @@\n             if(arr[j] > arr[j + 1]) {\r\n                 swap(j, j + 1);\r\n                 await sleep(delay);\r\n             }\r\n+            if(halt)\r\n+            break;\r\n             while(run==false)\r\n             await sleep(1);\r\n             setColor(j, UNSORTED);\r\n             setColor(j + 1, UNSORTED);\r\n         }\r\n-\r\n+       if(halt)\r\n+       break;\r\n         await sleep(delay);\r\n \r\n         setColor(j, SORTED);\r\n     }\r\n"
+                },
+                {
+                    "date": 1655146623679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,13 @@\n             await sleep(1);\r\n             setColor(j, UNSORTED);\r\n             setColor(j + 1, UNSORTED);\r\n         }\r\n-       if(halt)\r\n-       break;\r\n+       if(halt){\r\n+        setColorRange(0, size - 1, UNSORTED);\r\n+        break;\r\n+       }\r\n+     \r\n         await sleep(delay);\r\n \r\n         setColor(j, SORTED);\r\n     }\r\n"
+                },
+                {
+                    "date": 1655146742449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,7 @@\n         await sleep(delay);\r\n \r\n         setColor(j, SORTED);\r\n     }\r\n-\r\n+     if(halt==false)\r\n     setColor(0, SORTED);\r\n }\r\n"
+                },
+                {
+                    "date": 1655146817741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,10 @@\n         await sleep(delay);\r\n \r\n         setColor(j, SORTED);\r\n     }\r\n-     if(halt==false)\r\n+     if(halt==false){\r\n     setColor(0, SORTED);\r\n+\r\n+     }\r\n+     halt=0;\r\n }\r\n"
+                },
+                {
+                    "date": 1655226601381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n async function bubbleSort() {\r\n+    bubble.style.color =\"red\";\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n     for(i = 0; i < size - 1; i++) {\r\n"
+                },
+                {
+                    "date": 1655226803685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n async function bubbleSort() {\r\n-    bubble.style.color =\"red\";\r\n+    // bubble.back.color =\"red\";\r\n+    sor_btn.disable=true;\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n     for(i = 0; i < size - 1; i++) {\r\n"
+                },
+                {
+                    "date": 1655227229308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n async function bubbleSort() {\r\n-    // bubble.back.color =\"red\";\r\n+    bubble.background.color =\"red\";\r\n     sor_btn.disable=true;\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n"
+                },
+                {
+                    "date": 1655227259111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n async function bubbleSort() {\r\n     bubble.background.color =\"red\";\r\n-    sor_btn.disable=true;\r\n+    // sor_btn.disable=true;\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n     for(i = 0; i < size - 1; i++) {\r\n"
+                },
+                {
+                    "date": 1655227279068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n async function bubbleSort() {\r\n-    bubble.background.color =\"red\";\r\n+    bubble.background=\"red\";\r\n     // sor_btn.disable=true;\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n"
+                },
+                {
+                    "date": 1655227745651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n async function bubbleSort() {\r\n     bubble.background=\"red\";\r\n-    // sor_btn.disable=true;\r\n+    sort_btn.disable=true;\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n     for(i = 0; i < size - 1; i++) {\r\n"
+                },
+                {
+                    "date": 1655228805347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n async function bubbleSort() {\r\n-    bubble.background=\"red\";\r\n+   \r\n     sort_btn.disable=true;\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n"
+                },
+                {
+                    "date": 1655313965227,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n async function bubbleSort() {\r\n    \r\n-    sort_btn.disable=true;\r\n+    // sort_btn.disable=true;\r\n     var i, j;\r\n     await sleep(delay);\r\n      halt=false;\r\n     for(i = 0; i < size - 1; i++) {\r\n@@ -15,10 +15,13 @@\n             if(arr[j] > arr[j + 1]) {\r\n                 swap(j, j + 1);\r\n                 await sleep(delay);\r\n             }\r\n-            if(halt)\r\n-            break;\r\n+            if(halt){\r\n+                setColorRange(0, size - 1, UNSORTED);\r\n+                break;\r\n+            }\r\n+          \r\n             while(run==false)\r\n             await sleep(1);\r\n             setColor(j, UNSORTED);\r\n             setColor(j + 1, UNSORTED);\r\n"
+                },
+                {
+                    "date": 1655405042073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,9 @@\n                 setColorRange(0, size - 1, UNSORTED);\r\n                 break;\r\n             }\r\n           \r\n-            while(run==false)\r\n-            await sleep(1);\r\n+            checkPause()\r\n             setColor(j, UNSORTED);\r\n             setColor(j + 1, UNSORTED);\r\n         }\r\n        if(halt){\r\n"
+                },
+                {
+                    "date": 1655405243633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n                 setColorRange(0, size - 1, UNSORTED);\r\n                 break;\r\n             }\r\n           \r\n-            checkPause()\r\n+            while(run==false)\r\n+            await sleep(1);\r\n             setColor(j, UNSORTED);\r\n             setColor(j + 1, UNSORTED);\r\n         }\r\n        if(halt){\r\n"
+                },
+                {
+                    "date": 1655405330142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,11 +19,9 @@\n             if(halt){\r\n                 setColorRange(0, size - 1, UNSORTED);\r\n                 break;\r\n             }\r\n-          \r\n-            while(run==false)\r\n-            await sleep(1);\r\n+            checkPause(run);\r\n             setColor(j, UNSORTED);\r\n             setColor(j + 1, UNSORTED);\r\n         }\r\n        if(halt){\r\n"
+                },
+                {
+                    "date": 1655405478618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,11 @@\n             if(halt){\r\n                 setColorRange(0, size - 1, UNSORTED);\r\n                 break;\r\n             }\r\n-            checkPause(run);\r\n+          \r\n+            while(run==false)\r\n+            await sleep(1);\r\n             setColor(j, UNSORTED);\r\n             setColor(j + 1, UNSORTED);\r\n         }\r\n        if(halt){\r\n"
+                }
+            ],
+            "date": 1655143355462,
+            "name": "Commit-0",
+            "content": "async function bubbleSort() {\r\n    var i, j;\r\n    await sleep(delay);\r\n\r\n    for(i = 0; i < size - 1; i++) {\r\n        for(j = 0; j < size - i - 1; j++) {\r\n            await sleep(delay);\r\n\r\n            setColor(j, COMPARE);\r\n            setColor(j + 1, COMPARE);\r\n            await sleep(delay);\r\n\r\n            if(arr[j] > arr[j + 1]) {\r\n                swap(j, j + 1);\r\n                await sleep(delay);\r\n            }\r\n            while(run==false)\r\n            await sleep(1);\r\n            setColor(j, UNSORTED);\r\n            setColor(j + 1, UNSORTED);\r\n        }\r\n\r\n        await sleep(delay);\r\n\r\n        setColor(j, SORTED);\r\n    }\r\n\r\n    setColor(0, SORTED);\r\n}\r\n"
+        }
+    ]
+}

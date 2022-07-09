@@ -1,0 +1,54 @@
+{
+    "sourceFile": "assets/insertion-sort.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1655144302515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655144457707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,13 @@\n         j = i - 1;\r\n         key = arr[i];\r\n \r\n         while(j >= 0 && arr[j] > key) {\r\n+            while(run==false)\r\n+            await sleep(1);\r\n             setColor(j, COMPARE);\r\n             await sleep(delay);\r\n-            while(run==false)\r\n-            await sleep(1);\r\n+         \r\n             swap(j, j + 1);\r\n             setColor(j, SELECTED);\r\n             setColor(j + 1, COMPARE);\r\n             await sleep(delay);\r\n"
+                },
+                {
+                    "date": 1655144549457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,10 @@\n         j = i - 1;\r\n         key = arr[i];\r\n \r\n         while(j >= 0 && arr[j] > key) {\r\n-            while(run==false)\r\n-            await sleep(1);\r\n+           if(run==false)\r\n+           await pauseButton();\r\n             setColor(j, COMPARE);\r\n             await sleep(delay);\r\n          \r\n             swap(j, j + 1);\r\n"
+                },
+                {
+                    "date": 1655144624039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,13 +16,13 @@\n         j = i - 1;\r\n         key = arr[i];\r\n \r\n         while(j >= 0 && arr[j] > key) {\r\n-           if(run==false)\r\n-           await pauseButton();\r\n+         \r\n             setColor(j, COMPARE);\r\n             await sleep(delay);\r\n-         \r\n+            if(run==false)\r\n+            await pauseButton();\r\n             swap(j, j + 1);\r\n             setColor(j, SELECTED);\r\n             setColor(j + 1, COMPARE);\r\n             await sleep(delay);\r\n"
+                },
+                {
+                    "date": 1655144747537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,18 +16,22 @@\n         j = i - 1;\r\n         key = arr[i];\r\n \r\n         while(j >= 0 && arr[j] > key) {\r\n-         \r\n+            if(run==false)\r\n+            await pauseButton();\r\n             setColor(j, COMPARE);\r\n             await sleep(delay);\r\n             if(run==false)\r\n             await pauseButton();\r\n             swap(j, j + 1);\r\n+            if(run==false)\r\n+            await pauseButton();\r\n             setColor(j, SELECTED);\r\n             setColor(j + 1, COMPARE);\r\n             await sleep(delay);\r\n-\r\n+            if(run==false)\r\n+            await pauseButton();\r\n             setColor(j + 1, SORTED);\r\n             await sleep(delay);\r\n \r\n             j--;\r\n"
+                },
+                {
+                    "date": 1655144799991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,10 @@\n     setColor(0, SORTED);\r\n \r\n     for(i = 1; i < size; i++) {\r\n         await sleep(delay);\r\n-\r\n+        if(run==false)\r\n+        await pauseButton();\r\n         setColor(i, SELECTED);\r\n         await sleep(delay);\r\n \r\n         j = i - 1;\r\n"
+                },
+                {
+                    "date": 1655316791305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,31 +8,27 @@\n     setColor(0, SORTED);\r\n \r\n     for(i = 1; i < size; i++) {\r\n         await sleep(delay);\r\n-        if(run==false)\r\n-        await pauseButton();\r\n+      \r\n         setColor(i, SELECTED);\r\n         await sleep(delay);\r\n \r\n         j = i - 1;\r\n         key = arr[i];\r\n \r\n         while(j >= 0 && arr[j] > key) {\r\n-            if(run==false)\r\n-            await pauseButton();\r\n+            while(run==false)\r\n+            await sleep(1);\r\n             setColor(j, COMPARE);\r\n             await sleep(delay);\r\n-            if(run==false)\r\n-            await pauseButton();\r\n+           \r\n             swap(j, j + 1);\r\n-            if(run==false)\r\n-            await pauseButton();\r\n+           \r\n             setColor(j, SELECTED);\r\n             setColor(j + 1, COMPARE);\r\n             await sleep(delay);\r\n-            if(run==false)\r\n-            await pauseButton();\r\n+          \r\n             setColor(j + 1, SORTED);\r\n             await sleep(delay);\r\n \r\n             j--;\r\n"
+                },
+                {
+                    "date": 1655316850005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,19 +16,20 @@\n         j = i - 1;\r\n         key = arr[i];\r\n \r\n         while(j >= 0 && arr[j] > key) {\r\n+           \r\n+            setColor(j, COMPARE);\r\n+            await sleep(delay);\r\n             while(run==false)\r\n             await sleep(1);\r\n-            setColor(j, COMPARE);\r\n-            await sleep(delay);\r\n-           \r\n             swap(j, j + 1);\r\n            \r\n             setColor(j, SELECTED);\r\n             setColor(j + 1, COMPARE);\r\n             await sleep(delay);\r\n-          \r\n+            while(run==false)\r\n+            await sleep(1);\r\n             setColor(j + 1, SORTED);\r\n             await sleep(delay);\r\n \r\n             j--;\r\n"
+                },
+                {
+                    "date": 1655316967160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,12 @@\n             await sleep(delay);\r\n             while(run==false)\r\n             await sleep(1);\r\n             swap(j, j + 1);\r\n-           \r\n+            if(halt){\r\n+                setColorRange(0, size - 1, UNSORTED);\r\n+                break;\r\n+               }\r\n             setColor(j, SELECTED);\r\n             setColor(j + 1, COMPARE);\r\n             await sleep(delay);\r\n             while(run==false)\r\n@@ -33,8 +36,12 @@\n             await sleep(delay);\r\n \r\n             j--;\r\n         }\r\n-\r\n+        if(halt){\r\n+            setColorRange(0, size - 1, UNSORTED);\r\n+            break;\r\n+           }\r\n+           \r\n         setColor(j + 1, SORTED);\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1655317114590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,5 +43,6 @@\n            }\r\n            \r\n         setColor(j + 1, SORTED);\r\n     }\r\n+    halt=0;\r\n }\r\n"
+                }
+            ],
+            "date": 1655144302515,
+            "name": "Commit-0",
+            "content": "async function insertionSort() {\r\n    var i, j, key;\r\n    await sleep(delay);\r\n\r\n    setColor(0, SELECTED);\r\n    await sleep(delay);\r\n\r\n    setColor(0, SORTED);\r\n\r\n    for(i = 1; i < size; i++) {\r\n        await sleep(delay);\r\n\r\n        setColor(i, SELECTED);\r\n        await sleep(delay);\r\n\r\n        j = i - 1;\r\n        key = arr[i];\r\n\r\n        while(j >= 0 && arr[j] > key) {\r\n            setColor(j, COMPARE);\r\n            await sleep(delay);\r\n            while(run==false)\r\n            await sleep(1);\r\n            swap(j, j + 1);\r\n            setColor(j, SELECTED);\r\n            setColor(j + 1, COMPARE);\r\n            await sleep(delay);\r\n\r\n            setColor(j + 1, SORTED);\r\n            await sleep(delay);\r\n\r\n            j--;\r\n        }\r\n\r\n        setColor(j + 1, SORTED);\r\n    }\r\n}\r\n"
+        }
+    ]
+}

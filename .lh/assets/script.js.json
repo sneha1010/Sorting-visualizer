@@ -1,0 +1,418 @@
+{
+    "sourceFile": "assets/script.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 100,
+            "patches": [
+                {
+                    "date": 1655140758095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655140817417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -171,9 +171,9 @@\n     );\r\n \r\n     $(\"#stop\").click(\r\n         async function() {\r\n-            disableOthers();\r\n+           \r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n \r\n          \r\n"
+                },
+                {
+                    "date": 1655140859119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -164,23 +164,23 @@\n             else {\r\n                 $(\"#no-algo-warning\").removeClass('display-none');\r\n                 $(\"#no-algo-warning\").addClass('display-flex');\r\n             }\r\n-\r\n+            $(\"#stop\").click(\r\n+                async function() {\r\n+                   \r\n+        \r\n+                    setColorRange(0, size - 1, UNSORTED);\r\n+        \r\n+                 \r\n+                }\r\n+            );\r\n             enableOthers();\r\n         }\r\n     );\r\n \r\n-    $(\"#stop\").click(\r\n-        async function() {\r\n-           \r\n+   \r\n \r\n-            setColorRange(0, size - 1, UNSORTED);\r\n-\r\n-         \r\n-        }\r\n-    );\r\n-\r\n     $(\"#size-slider\").on('input', function() {\r\n         size = $(this).val();\r\n \r\n         findElementWidth();\r\n"
+                },
+                {
+                    "date": 1655141483818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,9 +149,9 @@\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n \r\n             if(algo_selected == \"Bubble Sort\")\r\n-                await bubbleSort();\r\n+                 bubbleSort();\r\n             else if(algo_selected == \"Selection Sort\")\r\n                 await selectionSort();\r\n             else if(algo_selected == \"Insertion Sort\")\r\n                 await insertionSort();\r\n@@ -164,23 +164,20 @@\n             else {\r\n                 $(\"#no-algo-warning\").removeClass('display-none');\r\n                 $(\"#no-algo-warning\").addClass('display-flex');\r\n             }\r\n-            $(\"#stop\").click(\r\n-                async function() {\r\n-                   \r\n-        \r\n-                    setColorRange(0, size - 1, UNSORTED);\r\n-        \r\n-                 \r\n-                }\r\n-            );\r\n+           \r\n             enableOthers();\r\n         }\r\n     );\r\n \r\n-   \r\n+    $(\"#sort\").click(\r\n+      \r\n \r\n+            setColorRange(0, size - 1, UNSORTED);\r\n+\r\n+    );\r\n+\r\n     $(\"#size-slider\").on('input', function() {\r\n         size = $(this).val();\r\n \r\n         findElementWidth();\r\n"
+                },
+                {
+                    "date": 1655141496683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -169,9 +169,9 @@\n             enableOthers();\r\n         }\r\n     );\r\n \r\n-    $(\"#sort\").click(\r\n+    $(\"#stop\").click(\r\n       \r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n \r\n"
+                },
+                {
+                    "date": 1655141549815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -170,12 +170,12 @@\n         }\r\n     );\r\n \r\n     $(\"#stop\").click(\r\n-      \r\n+        function() {\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n-\r\n+        }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n         size = $(this).val();\r\n"
+                },
+                {
+                    "date": 1655141606854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -143,9 +143,9 @@\n         }\r\n     );\r\n \r\n     $(\"#sort\").click(\r\n-        async function() {\r\n+        function() {\r\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n \r\n"
+                },
+                {
+                    "date": 1655141633060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -151,17 +151,17 @@\n \r\n             if(algo_selected == \"Bubble Sort\")\r\n                  bubbleSort();\r\n             else if(algo_selected == \"Selection Sort\")\r\n-                await selectionSort();\r\n+                 selectionSort();\r\n             else if(algo_selected == \"Insertion Sort\")\r\n-                await insertionSort();\r\n+                insertionSort();\r\n             else  if(algo_selected == \"Merge Sort\")\r\n-                await mergeSort(0, size - 1);\r\n+                 mergeSort(0, size - 1);\r\n             else if(algo_selected == \"Quicksort\")\r\n-                await quicksort(0, size - 1);\r\n+                quicksort(0, size - 1);\r\n             else if(algo_selected == \"Heapsort\")\r\n-                await heapsort();\r\n+                 heapsort();\r\n             else {\r\n                 $(\"#no-algo-warning\").removeClass('display-none');\r\n                 $(\"#no-algo-warning\").addClass('display-flex');\r\n             }\r\n"
+                },
+                {
+                    "date": 1655141675686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -143,25 +143,25 @@\n         }\r\n     );\r\n \r\n     $(\"#sort\").click(\r\n-        function() {\r\n+        async function() {\r\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n \r\n             if(algo_selected == \"Bubble Sort\")\r\n                  bubbleSort();\r\n             else if(algo_selected == \"Selection Sort\")\r\n-                 selectionSort();\r\n+                await selectionSort();\r\n             else if(algo_selected == \"Insertion Sort\")\r\n-                insertionSort();\r\n+                await insertionSort();\r\n             else  if(algo_selected == \"Merge Sort\")\r\n-                 mergeSort(0, size - 1);\r\n+                await mergeSort(0, size - 1);\r\n             else if(algo_selected == \"Quicksort\")\r\n-                quicksort(0, size - 1);\r\n+                await quicksort(0, size - 1);\r\n             else if(algo_selected == \"Heapsort\")\r\n-                 heapsort();\r\n+                await heapsort();\r\n             else {\r\n                 $(\"#no-algo-warning\").removeClass('display-none');\r\n                 $(\"#no-algo-warning\").addClass('display-flex');\r\n             }\r\n"
+                },
+                {
+                    "date": 1655141944975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,9 +149,9 @@\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n \r\n             if(algo_selected == \"Bubble Sort\")\r\n-                 bubbleSort();\r\n+                await bubbleSort();\r\n             else if(algo_selected == \"Selection Sort\")\r\n                 await selectionSort();\r\n             else if(algo_selected == \"Insertion Sort\")\r\n                 await insertionSort();\r\n"
+                },
+                {
+                    "date": 1655142039216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -172,9 +172,9 @@\n \r\n     $(\"#stop\").click(\r\n         function() {\r\n \r\n-            setColorRange(0, size - 1, UNSORTED);\r\n+            document.write(\"hello\");\r\n         }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n"
+                },
+                {
+                    "date": 1655142181033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -172,9 +172,9 @@\n \r\n     $(\"#stop\").click(\r\n         function() {\r\n \r\n-            document.write(\"hello\");\r\n+            await sleep(3000);\r\n         }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n"
+                },
+                {
+                    "date": 1655142196574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -172,9 +172,9 @@\n \r\n     $(\"#stop\").click(\r\n         function() {\r\n \r\n-            await sleep(3000);\r\n+            // await sleep(3000);\r\n         }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n"
+                },
+                {
+                    "date": 1655142201846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -172,9 +172,9 @@\n \r\n     $(\"#stop\").click(\r\n         function() {\r\n \r\n-            // await sleep(3000);\r\n+            await sleep(3000);\r\n         }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n"
+                },
+                {
+                    "date": 1655142230459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -170,9 +170,9 @@\n         }\r\n     );\r\n \r\n     $(\"#stop\").click(\r\n-        function() {\r\n+        async function() {\r\n \r\n             await sleep(3000);\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655142387263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n var element_width_max;\r\n var margin_element;\r\n \r\n var algo_selected;\r\n-\r\n+var run=true;\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n@@ -148,9 +148,9 @@\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n \r\n-            if(algo_selected == \"Bubble Sort\")\r\n+            if(algo_selected == \"Bubble Sort\"&&run)\r\n                 await bubbleSort();\r\n             else if(algo_selected == \"Selection Sort\")\r\n                 await selectionSort();\r\n             else if(algo_selected == \"Insertion Sort\")\r\n@@ -170,11 +170,11 @@\n         }\r\n     );\r\n \r\n     $(\"#stop\").click(\r\n-        async function() {\r\n+       function() {\r\n \r\n-            await sleep(3000);\r\n+           run=false;\r\n         }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n"
+                },
+                {
+                    "date": 1655143506173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -171,10 +171,12 @@\n     );\r\n \r\n     $(\"#stop\").click(\r\n        function() {\r\n-\r\n+          if(run)\r\n            run=false;\r\n+           else\r\n+           run=true;\r\n         }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n"
+                },
+                {
+                    "date": 1655143686614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -175,8 +175,9 @@\n           if(run)\r\n            run=false;\r\n            else\r\n            run=true;\r\n+           stop.textContent = run === true ? \"Pause\" : \"Play\";\r\n         }\r\n     );\r\n \r\n     $(\"#size-slider\").on('input', function() {\r\n"
+                },
+                {
+                    "date": 1655143817629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -169,18 +169,26 @@\n             enableOthers();\r\n         }\r\n     );\r\n \r\n-    $(\"#stop\").click(\r\n-       function() {\r\n-          if(run)\r\n-           run=false;\r\n-           else\r\n-           run=true;\r\n-           stop.textContent = run === true ? \"Pause\" : \"Play\";\r\n-        }\r\n-    );\r\n+    // $(\"#stop\").click(\r\n+    //    function() {\r\n+    //       if(run)\r\n+    //        run=false;\r\n+    //        else\r\n+    //        run=true;\r\n+    //        stop.textContent = run === true ? \"Pause\" : \"Play\";\r\n+    //     }\r\n+    // );\r\n+ \r\n+    const pause = document.getElementById(\"stop\");\r\n \r\n+let run = true;\r\n+\r\n+pause.addEventListener(\"click\", () => {\r\n+  run = run === true ? false : true;\r\n+  pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n+});\r\n     $(\"#size-slider\").on('input', function() {\r\n         size = $(this).val();\r\n \r\n         findElementWidth();\r\n"
+                },
+                {
+                    "date": 1655143867791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,10 +181,10 @@\n     // );\r\n  \r\n     const pause = document.getElementById(\"stop\");\r\n \r\n-let run = true;\r\n \r\n+\r\n pause.addEventListener(\"click\", () => {\r\n   run = run === true ? false : true;\r\n   pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n });\r\n"
+                },
+                {
+                    "date": 1655143941787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -169,26 +169,26 @@\n             enableOthers();\r\n         }\r\n     );\r\n \r\n-    // $(\"#stop\").click(\r\n-    //    function() {\r\n-    //       if(run)\r\n-    //        run=false;\r\n-    //        else\r\n-    //        run=true;\r\n-    //        stop.textContent = run === true ? \"Pause\" : \"Play\";\r\n-    //     }\r\n-    // );\r\n+    $(\"#stop\").click(\r\n+       function() {\r\n+          if(run)\r\n+           run=false;\r\n+           else\r\n+           run=true;\r\n+         textContent = run === true ? \"Pause\" : \"Play\";\r\n+        }\r\n+    );\r\n  \r\n     const pause = document.getElementById(\"stop\");\r\n \r\n \r\n \r\n-pause.addEventListener(\"click\", () => {\r\n-  run = run === true ? false : true;\r\n-  pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n-});\r\n+// pause.addEventListener(\"click\", () => {\r\n+//   run = run === true ? false : true;\r\n+//   pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n+// });\r\n     $(\"#size-slider\").on('input', function() {\r\n         size = $(this).val();\r\n \r\n         findElementWidth();\r\n"
+                },
+                {
+                    "date": 1655144177546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,8 +78,14 @@\n function setColorRange(p, r, color) {\r\n     for(var i = p; i <= r; i++)\r\n         $(\"#e\" + i).css('background-color', color);\r\n }\r\n+function pauseHandler()\r\n+{\r\n+    const pause = document.getElementById(\"pause\");\r\n+    run = run === true ? false : true;\r\n+    pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n+}\r\n \r\n function swap(a, b) {\r\n     var temp = arr[a];\r\n     arr[a] = arr[b];\r\n@@ -171,13 +177,9 @@\n     );\r\n \r\n     $(\"#stop\").click(\r\n        function() {\r\n-          if(run)\r\n-           run=false;\r\n-           else\r\n-           run=true;\r\n-         textContent = run === true ? \"Pause\" : \"Play\";\r\n+        pauseHandler();\r\n         }\r\n     );\r\n  \r\n     const pause = document.getElementById(\"stop\");\r\n"
+                },
+                {
+                    "date": 1655144237390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         $(\"#e\" + i).css('background-color', color);\r\n }\r\n function pauseHandler()\r\n {\r\n-    const pause = document.getElementById(\"pause\");\r\n+    const pause = document.getElementById(\"stop\");\r\n     run = run === true ? false : true;\r\n     pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655144524395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,9 +84,12 @@\n     const pause = document.getElementById(\"stop\");\r\n     run = run === true ? false : true;\r\n     pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n }\r\n-\r\n+async function pauseButton() {\r\n+    while (run == false) await sleep(1);\r\n+    return;\r\n+  }\r\n function swap(a, b) {\r\n     var temp = arr[a];\r\n     arr[a] = arr[b];\r\n     arr[b] = temp;\r\n"
+                },
+                {
+                    "date": 1655145149826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,9 @@\n }\r\n \r\n function disableOthers() {\r\n     $(\"#sort\").prop('disabled', true);\r\n-    $(\"#randomize\").prop('disabled', true);\r\n+    // $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n function enableOthers() {\r\n"
+                },
+                {
+                    "date": 1655145184138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,9 @@\n }\r\n \r\n function disableOthers() {\r\n     $(\"#sort\").prop('disabled', true);\r\n-    // $(\"#randomize\").prop('disabled', true);\r\n+    $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n function enableOthers() {\r\n"
+                },
+                {
+                    "date": 1655145275089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -101,9 +101,9 @@\n     setHeight(b, h1);\r\n }\r\n \r\n function disableOthers() {\r\n-    $(\"#sort\").prop('disabled', true);\r\n+    // $(\"#sort\").prop('disabled', true);\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n@@ -178,9 +178,9 @@\n             enableOthers();\r\n         }\r\n     );\r\n \r\n-    $(\"#stop\").click(\r\n+    $(\"#sort\").click(\r\n        function() {\r\n         pauseHandler();\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655145329514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,9 @@\n         $(\"#e\" + i).css('background-color', color);\r\n }\r\n function pauseHandler()\r\n {\r\n-    const pause = document.getElementById(\"stop\");\r\n+    const pause = document.getElementById(\"sort\");\r\n     run = run === true ? false : true;\r\n     pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n }\r\n async function pauseButton() {\r\n"
+                },
+                {
+                    "date": 1655145613114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n var margin_element;\r\n \r\n var algo_selected;\r\n var run=true;\r\n+var first=true;\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n@@ -153,12 +154,14 @@\n     );\r\n \r\n     $(\"#sort\").click(\r\n         async function() {\r\n+            if(first){\r\n+                first=false;\r\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n-\r\n+          \r\n             if(algo_selected == \"Bubble Sort\"&&run)\r\n                 await bubbleSort();\r\n             else if(algo_selected == \"Selection Sort\")\r\n                 await selectionSort();\r\n@@ -176,15 +179,18 @@\n             }\r\n            \r\n             enableOthers();\r\n         }\r\n-    );\r\n-\r\n-    $(\"#sort\").click(\r\n-       function() {\r\n+        else\r\n         pauseHandler();\r\n         }\r\n     );\r\n+\r\n+    // $(\"#sort\").click(\r\n+    //    function() {\r\n+      \r\n+    //     }\r\n+    // );\r\n  \r\n     const pause = document.getElementById(\"stop\");\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1655146327178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,9 @@\n \r\n var algo_selected;\r\n var run=true;\r\n var first=true;\r\n+var halt =true;\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n@@ -184,13 +185,13 @@\n         pauseHandler();\r\n         }\r\n     );\r\n \r\n-    // $(\"#sort\").click(\r\n-    //    function() {\r\n-      \r\n-    //     }\r\n-    // );\r\n+    $(\"#stop\").click(\r\n+       function() {\r\n+      halt=true;\r\n+        }\r\n+    );\r\n  \r\n     const pause = document.getElementById(\"stop\");\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1655146386592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -191,9 +191,9 @@\n       halt=true;\r\n         }\r\n     );\r\n  \r\n-    const pause = document.getElementById(\"stop\");\r\n+    \r\n \r\n \r\n \r\n // pause.addEventListener(\"click\", () => {\r\n"
+                },
+                {
+                    "date": 1655146479982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n \r\n var algo_selected;\r\n var run=true;\r\n var first=true;\r\n-var halt =true;\r\n+var halt =false;\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n"
+                },
+                {
+                    "date": 1655146548204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n var element_width_max;\r\n var margin_element;\r\n \r\n var algo_selected;\r\n-var run=true;\r\n+var run=false;\r\n var first=true;\r\n var halt =false;\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n@@ -157,8 +157,10 @@\n     $(\"#sort\").click(\r\n         async function() {\r\n             if(first){\r\n                 first=false;\r\n+                pauseHandler();\r\n+      \r\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n           \r\n"
+                },
+                {
+                    "date": 1655226805335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,10 @@\n var algo_selected;\r\n var run=false;\r\n var first=true;\r\n var halt =false;\r\n+\r\n+let sor_btn=document.getElementById(\"algo-container\");\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n"
+                },
+                {
+                    "date": 1655226848415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n var run=false;\r\n var first=true;\r\n var halt =false;\r\n \r\n-let sor_btn=document.getElementById(\"algo-container\");\r\n+var sor_btn=document.getElementById(\"algo-container\");\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n"
+                },
+                {
+                    "date": 1655226965536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,10 @@\n var run=false;\r\n var first=true;\r\n var halt =false;\r\n \r\n-var sor_btn=document.getElementById(\"algo-container\");\r\n+var sor_btn=document.getElementById(\"algo-btn\");\r\n+\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n"
+                },
+                {
+                    "date": 1655227289001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n var run=false;\r\n var first=true;\r\n var halt =false;\r\n \r\n-var sor_btn=document.getElementById(\"algo-btn\");\r\n+// var sort_btn=document.getElementById(\"algo-btn\");\r\n \r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n"
+                },
+                {
+                    "date": 1655227443816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -147,12 +147,13 @@\n \r\n     $(\".algo-btn\").click(\r\n         function() {\r\n             algo_selected = $(this).html();\r\n-\r\n+            \r\n             $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n             $(this).addClass('algo-btn-active');\r\n-\r\n+            $(\".algo-btn-active\").disable=true;\r\n+            $(\".algo-btn-active\").disable=false;\r\n             $(\"#no-algo-warning\").removeClass('display-flex');\r\n             $(\"#no-algo-warning\").addClass('display-none');\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655227576117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,10 +150,12 @@\n             algo_selected = $(this).html();\r\n             \r\n             $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n             $(this).addClass('algo-btn-active');\r\n-            $(\".algo-btn-active\").disable=true;\r\n-            $(\".algo-btn-active\").disable=false;\r\n+            var btn=document.getElementsByClassName(\"algo-btn\");\r\n+            var selected=document.getElementsByClassName(\"algo-btn-active\");\r\n+           btn.disable=true;\r\n+          selected.disable=false;\r\n             $(\"#no-algo-warning\").removeClass('display-flex');\r\n             $(\"#no-algo-warning\").addClass('display-none');\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655227748346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n var run=false;\r\n var first=true;\r\n var halt =false;\r\n \r\n-// var sort_btn=document.getElementById(\"algo-btn\");\r\n+var sort_btn=document.getElementsByClassName(\"algo-btn\");\r\n \r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n"
+                },
+                {
+                    "date": 1655227809968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,9 +106,9 @@\n     setHeight(b, h1);\r\n }\r\n \r\n function disableOthers() {\r\n-    // $(\"#sort\").prop('disabled', true);\r\n+    $(\".algo-btn\").prop('disabled', true);\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655227867663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,12 +150,12 @@\n             algo_selected = $(this).html();\r\n             \r\n             $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n             $(this).addClass('algo-btn-active');\r\n-            var btn=document.getElementsByClassName(\"algo-btn\");\r\n-            var selected=document.getElementsByClassName(\"algo-btn-active\");\r\n-           btn.disable=true;\r\n-          selected.disable=false;\r\n+        //     var btn=document.getElementsByClassName(\"algo-btn\");\r\n+        //     var selected=document.getElementsByClassName(\"algo-btn-active\");\r\n+        //    btn.disable=true;\r\n+        //   selected.disable=false;\r\n             $(\"#no-algo-warning\").removeClass('display-flex');\r\n             $(\"#no-algo-warning\").addClass('display-none');\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655227918711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,9 +106,9 @@\n     setHeight(b, h1);\r\n }\r\n \r\n function disableOthers() {\r\n-    $(\".algo-btn\").prop('disabled', true);\r\n+    $(\"#bubble\").prop('disabled', true);\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655227945519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,8 +107,9 @@\n }\r\n \r\n function disableOthers() {\r\n     $(\"#bubble\").prop('disabled', true);\r\n+    $(\"#selection\").prop('disabled', true);\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655228070059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,10 +106,10 @@\n     setHeight(b, h1);\r\n }\r\n \r\n function disableOthers() {\r\n-    $(\"#bubble\").prop('disabled', true);\r\n-    $(\"#selection\").prop('disabled', true);\r\n+    $(\".algo-btn\").prop('disabled', true);\r\n+    // $(\"#selection\").prop('disabled', true);\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655228410206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,8 +108,9 @@\n \r\n function disableOthers() {\r\n     $(\".algo-btn\").prop('disabled', true);\r\n     // $(\"#selection\").prop('disabled', true);\r\n+    $.unbind('hover');\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655228443033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n \r\n function disableOthers() {\r\n     $(\".algo-btn\").prop('disabled', true);\r\n     // $(\"#selection\").prop('disabled', true);\r\n-    $.unbind('hover');\r\n+    // $.unbind('hover');\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655228474815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,8 +107,9 @@\n }\r\n \r\n function disableOthers() {\r\n     $(\".algo-btn\").prop('disabled', true);\r\n+    $(\".algo-btn:hover\").prop('disabled', true);\r\n     // $(\"#selection\").prop('disabled', true);\r\n     // $.unbind('hover');\r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n"
+                },
+                {
+                    "date": 1655228862397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,11 +107,9 @@\n }\r\n \r\n function disableOthers() {\r\n     $(\".algo-btn\").prop('disabled', true);\r\n-    $(\".algo-btn:hover\").prop('disabled', true);\r\n-    // $(\"#selection\").prop('disabled', true);\r\n-    // $.unbind('hover');\r\n+   \r\n     $(\"#randomize\").prop('disabled', true);\r\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1655228913632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -113,8 +113,9 @@\n     $(\"#size-slider\").prop('disabled', true);\r\n }\r\n \r\n function enableOthers() {\r\n+    $(\".algo-btn\").prop('disabled', false);\r\n     $(\"#sort\").prop('disabled', false);\r\n     $(\"#randomize\").prop('disabled', false);\r\n     $(\"#size-slider\").prop('disabled', false);\r\n }\r\n"
+                },
+                {
+                    "date": 1655229115604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -198,8 +198,9 @@\n \r\n     $(\"#stop\").click(\r\n        function() {\r\n       halt=true;\r\n+      algo_selected=\"\";\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655229243567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -199,8 +199,9 @@\n     $(\"#stop\").click(\r\n        function() {\r\n       halt=true;\r\n       algo_selected=\"\";\r\n+      $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655229287621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -200,8 +200,9 @@\n        function() {\r\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n+      run=false;\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655229319925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -201,8 +201,9 @@\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n       run=false;\r\n+      pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655229371787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -201,9 +201,9 @@\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n       run=false;\r\n-      pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n+     pauseHandler();\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655229504725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -201,9 +201,11 @@\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n       run=false;\r\n-     pauseHandler();\r\n+      const pause = document.getElementById(\"sort\");\r\n+    //   run = run === true ? false : true;\r\n+      pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655229594324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -204,8 +204,9 @@\n       run=false;\r\n       const pause = document.getElementById(\"sort\");\r\n     //   run = run === true ? false : true;\r\n       pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n+      first=true;\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655229817179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -165,26 +165,46 @@\n     $(\"#sort\").click(\r\n         async function() {\r\n             if(first){\r\n                 first=false;\r\n-                pauseHandler();\r\n+             \r\n       \r\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n           \r\n-            if(algo_selected == \"Bubble Sort\"&&run)\r\n+            if(algo_selected == \"Bubble Sort\"&&run){\r\n+                pauseHandler();\r\n                 await bubbleSort();\r\n-            else if(algo_selected == \"Selection Sort\")\r\n+            }\r\n+               \r\n+            else if(algo_selected == \"Selection Sort\"){\r\n+                pauseHandler();\r\n                 await selectionSort();\r\n-            else if(algo_selected == \"Insertion Sort\")\r\n+            }\r\n+              \r\n+            else if(algo_selected == \"Insertion Sort\"){\r\n+                pauseHandler();\r\n                 await insertionSort();\r\n+            }\r\n+                \r\n             else  if(algo_selected == \"Merge Sort\")\r\n+            {\r\n+                pauseHandler();\r\n                 await mergeSort(0, size - 1);\r\n-            else if(algo_selected == \"Quicksort\")\r\n+            }\r\n+               \r\n+            else if(algo_selected == \"Quicksort\"){\r\n+                pauseHandler();\r\n                 await quicksort(0, size - 1);\r\n+            }\r\n+              \r\n             else if(algo_selected == \"Heapsort\")\r\n+            {\r\n+                pauseHandler();\r\n                 await heapsort();\r\n+            }\r\n+                \r\n             else {\r\n                 $(\"#no-algo-warning\").removeClass('display-none');\r\n                 $(\"#no-algo-warning\").addClass('display-flex');\r\n             }\r\n"
+                },
+                {
+                    "date": 1655229936662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -171,9 +171,9 @@\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n           \r\n-            if(algo_selected == \"Bubble Sort\"&&run){\r\n+            if(algo_selected == \"Bubble Sort\"){\r\n                 pauseHandler();\r\n                 await bubbleSort();\r\n             }\r\n                \r\n"
+                },
+                {
+                    "date": 1655229991836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -206,8 +206,9 @@\n                 \r\n             else {\r\n                 $(\"#no-algo-warning\").removeClass('display-none');\r\n                 $(\"#no-algo-warning\").addClass('display-flex');\r\n+                first=true;\r\n             }\r\n            \r\n             enableOthers();\r\n         }\r\n"
+                },
+                {
+                    "date": 1655230892831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n }\r\n \r\n function createArray() {\r\n     arr = [];\r\n-    $(\"#array\").html('');\r\n+    $(\"#array\").html('1');\r\n \r\n     for(var i = 0; i < size; i++) {\r\n         var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;\r\n         arr.push(n);\r\n"
+                },
+                {
+                    "date": 1655230902993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n }\r\n \r\n function createArray() {\r\n     arr = [];\r\n-    $(\"#array\").html('1');\r\n+    $(\"#array\").html('');\r\n \r\n     for(var i = 0; i < size; i++) {\r\n         var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;\r\n         arr.push(n);\r\n"
+                },
+                {
+                    "date": 1655231230831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n \r\n     for(var i = 0; i < size; i++) {\r\n         var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;\r\n         arr.push(n);\r\n-        \r\n+        bar.innerHTML(n);\r\n         var $element = $('<div>');\r\n         $element.attr('id', \"e\" + i);\r\n         $element.attr('class', \"element\");\r\n         $element.css('background-color', UNSORTED);\r\n"
+                },
+                {
+                    "date": 1655231249061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n \r\n     for(var i = 0; i < size; i++) {\r\n         var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;\r\n         arr.push(n);\r\n-        bar.innerHTML(n);\r\n+        bar.innerHTML=n;\r\n         var $element = $('<div>');\r\n         $element.attr('id', \"e\" + i);\r\n         $element.attr('class', \"element\");\r\n         $element.css('background-color', UNSORTED);\r\n"
+                },
+                {
+                    "date": 1655231393541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n \r\n     for(var i = 0; i < size; i++) {\r\n         var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;\r\n         arr.push(n);\r\n-        bar.innerHTML=n;\r\n+      $(\"#bar\").html(n);\r\n         var $element = $('<div>');\r\n         $element.attr('id', \"e\" + i);\r\n         $element.attr('class', \"element\");\r\n         $element.css('background-color', UNSORTED);\r\n@@ -68,8 +68,9 @@\n         $element.css('height', n.toString() + 'px');\r\n         $element.css('margin-left', margin_element + 'px');\r\n         $element.css('margin-right', margin_element + 'px');\r\n         $element.appendTo(\"#array\");\r\n+        // $element.css()\r\n     }\r\n }\r\n \r\n function setHeight(id, height) {\r\n"
+                },
+                {
+                    "date": 1655231460900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n \r\n     for(var i = 0; i < size; i++) {\r\n         var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;\r\n         arr.push(n);\r\n-      $(\"#bar\").html(n);\r\n+    //   $(\"#bar\").html(n);\r\n         var $element = $('<div>');\r\n         $element.attr('id', \"e\" + i);\r\n         $element.attr('class', \"element\");\r\n         $element.css('background-color', UNSORTED);\r\n@@ -68,9 +68,9 @@\n         $element.css('height', n.toString() + 'px');\r\n         $element.css('margin-left', margin_element + 'px');\r\n         $element.css('margin-right', margin_element + 'px');\r\n         $element.appendTo(\"#array\");\r\n-        // $element.css()\r\n+        $element.innerHTML(n);\r\n     }\r\n }\r\n \r\n function setHeight(id, height) {\r\n"
+                },
+                {
+                    "date": 1655231480367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,10 +67,11 @@\n         $element.css('width', element_width.toString() + 'px');\r\n         $element.css('height', n.toString() + 'px');\r\n         $element.css('margin-left', margin_element + 'px');\r\n         $element.css('margin-right', margin_element + 'px');\r\n+        $element.innerHTML(n);\r\n         $element.appendTo(\"#array\");\r\n-        $element.innerHTML(n);\r\n+      \r\n     }\r\n }\r\n \r\n function setHeight(id, height) {\r\n"
+                },
+                {
+                    "date": 1655231620171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,16 +67,17 @@\n         $element.css('width', element_width.toString() + 'px');\r\n         $element.css('height', n.toString() + 'px');\r\n         $element.css('margin-left', margin_element + 'px');\r\n         $element.css('margin-right', margin_element + 'px');\r\n-        $element.innerHTML(n);\r\n+        // $element.innerHTML(n);\r\n         $element.appendTo(\"#array\");\r\n       \r\n     }\r\n }\r\n \r\n function setHeight(id, height) {\r\n     $(\"#e\" + id).css('height', height);\r\n+    $(\"#e\" + id).innerHTML=height;\r\n }\r\n \r\n function setColor(id, color) {\r\n     $(\"#e\" + id).css('background-color', color);\r\n"
+                },
+                {
+                    "date": 1655231711297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,10 @@\n }\r\n \r\n function setHeight(id, height) {\r\n     $(\"#e\" + id).css('height', height);\r\n-    $(\"#e\" + id).innerHTML=height;\r\n+    document.getElementById(\"#e\" + id).innerHTML = \"I have changed!\";\r\n+    // $(\"#e\" + id).innerHTML=height;\r\n }\r\n \r\n function setColor(id, color) {\r\n     $(\"#e\" + id).css('background-color', color);\r\n"
+                },
+                {
+                    "date": 1655231737547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n }\r\n \r\n function setHeight(id, height) {\r\n     $(\"#e\" + id).css('height', height);\r\n-    document.getElementById(\"#e\" + id).innerHTML = \"I have changed!\";\r\n+    document.getElementById(\"#e\" + id).innerHTML = height;\r\n     // $(\"#e\" + id).innerHTML=height;\r\n }\r\n \r\n function setColor(id, color) {\r\n"
+                },
+                {
+                    "date": 1655231785513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n }\r\n \r\n function setHeight(id, height) {\r\n     $(\"#e\" + id).css('height', height);\r\n-    document.getElementById(\"#e\" + id).innerHTML = height;\r\n+    document.getElementById(\"#e\" + id).textContent = \"1\";\r\n     // $(\"#e\" + id).innerHTML=height;\r\n }\r\n \r\n function setColor(id, color) {\r\n"
+                },
+                {
+                    "date": 1655231967826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n }\r\n \r\n function setHeight(id, height) {\r\n     $(\"#e\" + id).css('height', height);\r\n-    document.getElementById(\"#e\" + id).textContent = \"1\";\r\n+    $(\"#e\" + id).textContent = \"1\";\r\n     // $(\"#e\" + id).innerHTML=height;\r\n }\r\n \r\n function setColor(id, color) {\r\n"
+                },
+                {
+                    "date": 1655232909150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n }\r\n \r\n function setHeight(id, height) {\r\n     $(\"#e\" + id).css('height', height);\r\n-    $(\"#e\" + id).textContent = \"1\";\r\n+    // $(\"#e\" + id).textContent = \"1\";\r\n     // $(\"#e\" + id).innerHTML=height;\r\n }\r\n \r\n function setColor(id, color) {\r\n"
+                },
+                {
+                    "date": 1655313185421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const MAX = 300;\r\n \r\n const WAITING_TIME = 100;\r\n \r\n-const UNSORTED = 'deepskyblue';\r\n+const UNSORTED = '#936A11';\r\n const SORTED = 'mediumspringgreen';\r\n const COMPARE = 'crimson';\r\n const SELECTED = 'blueviolet';\r\n const LEFT = 'gold';\r\n"
+                },
+                {
+                    "date": 1655313221151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const MAX = 300;\r\n \r\n const WAITING_TIME = 100;\r\n \r\n-const UNSORTED = '#936A11';\r\n+const UNSORTED = '#F9B420';\r\n const SORTED = 'mediumspringgreen';\r\n const COMPARE = 'crimson';\r\n const SELECTED = 'blueviolet';\r\n const LEFT = 'gold';\r\n"
+                },
+                {
+                    "date": 1655313297459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n const MAX = 300;\r\n \r\n const WAITING_TIME = 100;\r\n \r\n-const UNSORTED = '#F9B420';\r\n+const UNSORTED = '#e5a422';\r\n const SORTED = 'mediumspringgreen';\r\n const COMPARE = 'crimson';\r\n const SELECTED = 'blueviolet';\r\n const LEFT = 'gold';\r\n"
+                },
+                {
+                    "date": 1655313421863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n const WAITING_TIME = 100;\r\n \r\n const UNSORTED = '#e5a422';\r\n const SORTED = 'mediumspringgreen';\r\n-const COMPARE = 'crimson';\r\n+const COMPARE = '#F46A5F';\r\n const SELECTED = 'blueviolet';\r\n const LEFT = 'gold';\r\n const RIGHT = 'orangered';\r\n \r\n"
+                },
+                {
+                    "date": 1655313459694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n const WAITING_TIME = 100;\r\n \r\n const UNSORTED = '#e5a422';\r\n const SORTED = 'mediumspringgreen';\r\n-const COMPARE = '#F46A5F';\r\n+const COMPARE = '#cc2d24';\r\n const SELECTED = 'blueviolet';\r\n const LEFT = 'gold';\r\n const RIGHT = 'orangered';\r\n \r\n"
+                },
+                {
+                    "date": 1655313801835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,11 @@\n const MAX = 300;\r\n \r\n const WAITING_TIME = 100;\r\n \r\n-const UNSORTED = '#e5a422';\r\n+const UNSORTED = 'deepskyblue';\r\n const SORTED = 'mediumspringgreen';\r\n-const COMPARE = '#cc2d24';\r\n+const COMPARE = 'crimson';\r\n const SELECTED = 'blueviolet';\r\n const LEFT = 'gold';\r\n const RIGHT = 'orangered';\r\n \r\n"
+                },
+                {
+                    "date": 1655318196729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -223,15 +223,15 @@\n \r\n     $(\"#stop\").click(\r\n        function() {\r\n       halt=true;\r\n-      algo_selected=\"\";\r\n-      $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n-      run=false;\r\n-      const pause = document.getElementById(\"sort\");\r\n-    //   run = run === true ? false : true;\r\n-      pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n-      first=true;\r\n+    //   algo_selected=\"\";\r\n+    //   $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n+    //   run=false;\r\n+    //   const pause = document.getElementById(\"sort\");\r\n+    // //   run = run === true ? false : true;\r\n+    //   pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n+    //   first=true;\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655318235378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -223,9 +223,9 @@\n \r\n     $(\"#stop\").click(\r\n        function() {\r\n       halt=true;\r\n-    //   algo_selected=\"\";\r\n+      algo_selected=\"\";\r\n     //   $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n     //   run=false;\r\n     //   const pause = document.getElementById(\"sort\");\r\n     // //   run = run === true ? false : true;\r\n"
+                },
+                {
+                    "date": 1655318261790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -224,9 +224,9 @@\n     $(\"#stop\").click(\r\n        function() {\r\n       halt=true;\r\n       algo_selected=\"\";\r\n-    //   $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n+      $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n     //   run=false;\r\n     //   const pause = document.getElementById(\"sort\");\r\n     // //   run = run === true ? false : true;\r\n     //   pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n"
+                },
+                {
+                    "date": 1655318312477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -226,11 +226,11 @@\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n     //   run=false;\r\n-    //   const pause = document.getElementById(\"sort\");\r\n+      const pause = document.getElementById(\"sort\");\r\n     // //   run = run === true ? false : true;\r\n-    //   pause.textContent = run === true ? \"Pause\" : \"Play\";\r\n+      pause.textContent = \"Play\";\r\n     //   first=true;\r\n         }\r\n     );\r\n  \r\n"
+                },
+                {
+                    "date": 1655318338968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -229,9 +229,9 @@\n     //   run=false;\r\n       const pause = document.getElementById(\"sort\");\r\n     // //   run = run === true ? false : true;\r\n       pause.textContent = \"Play\";\r\n-    //   first=true;\r\n+      first=true;\r\n         }\r\n     );\r\n  \r\n     \r\n"
+                },
+                {
+                    "date": 1655318451074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -227,9 +227,9 @@\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n     //   run=false;\r\n       const pause = document.getElementById(\"sort\");\r\n-    // //   run = run === true ? false : true;\r\n+      run = run === true ? false : true;\r\n       pause.textContent = \"Play\";\r\n       first=true;\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655318468918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -225,11 +225,11 @@\n        function() {\r\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n-    //   run=false;\r\n+      run=false;\r\n       const pause = document.getElementById(\"sort\");\r\n-      run = run === true ? false : true;\r\n+    //   run = run === true ? false : true;\r\n       pause.textContent = \"Play\";\r\n       first=true;\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655318558251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -225,9 +225,9 @@\n        function() {\r\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n-      run=false;\r\n+    //   run=false;\r\n       const pause = document.getElementById(\"sort\");\r\n     //   run = run === true ? false : true;\r\n       pause.textContent = \"Play\";\r\n       first=true;\r\n"
+                },
+                {
+                    "date": 1655318651426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n                 await bubbleSort();\r\n             }\r\n                \r\n             else if(algo_selected == \"Selection Sort\"){\r\n-                pauseHandler();\r\n+                // pauseHandler();\r\n                 await selectionSort();\r\n             }\r\n               \r\n             else if(algo_selected == \"Insertion Sort\"){\r\n"
+                },
+                {
+                    "date": 1655318691669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -170,9 +170,9 @@\n         async function() {\r\n             if(first){\r\n                 first=false;\r\n              \r\n-      \r\n+           run=false;\r\n             disableOthers();\r\n \r\n             setColorRange(0, size - 1, UNSORTED);\r\n           \r\n"
+                },
+                {
+                    "date": 1655318708028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -181,9 +181,9 @@\n                 await bubbleSort();\r\n             }\r\n                \r\n             else if(algo_selected == \"Selection Sort\"){\r\n-                // pauseHandler();\r\n+                pauseHandler();\r\n                 await selectionSort();\r\n             }\r\n               \r\n             else if(algo_selected == \"Insertion Sort\"){\r\n"
+                },
+                {
+                    "date": 1655319300571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -156,12 +156,9 @@\n             algo_selected = $(this).html();\r\n             \r\n             $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n             $(this).addClass('algo-btn-active');\r\n-        //     var btn=document.getElementsByClassName(\"algo-btn\");\r\n-        //     var selected=document.getElementsByClassName(\"algo-btn-active\");\r\n-        //    btn.disable=true;\r\n-        //   selected.disable=false;\r\n+      \r\n             $(\"#no-algo-warning\").removeClass('display-flex');\r\n             $(\"#no-algo-warning\").addClass('display-none');\r\n         }\r\n     );\r\n"
+                },
+                {
+                    "date": 1655400811183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -189,8 +189,9 @@\n             }\r\n                 \r\n             else  if(algo_selected == \"Merge Sort\")\r\n             {\r\n+                $(\"#stop\").prop('disabled', false);\r\n                 pauseHandler();\r\n                 await mergeSort(0, size - 1);\r\n             }\r\n                \r\n"
+                },
+                {
+                    "date": 1655400864874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -189,9 +189,9 @@\n             }\r\n                 \r\n             else  if(algo_selected == \"Merge Sort\")\r\n             {\r\n-                $(\"#stop\").prop('disabled', false);\r\n+                $(\"#stop\").prop('disabled', true);\r\n                 pauseHandler();\r\n                 await mergeSort(0, size - 1);\r\n             }\r\n                \r\n"
+                },
+                {
+                    "date": 1655402493808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -195,8 +195,9 @@\n                 await mergeSort(0, size - 1);\r\n             }\r\n                \r\n             else if(algo_selected == \"Quicksort\"){\r\n+                $(\"#stop\").prop('disabled', true);\r\n                 pauseHandler();\r\n                 await quicksort(0, size - 1);\r\n             }\r\n               \r\n"
+                },
+                {
+                    "date": 1655404125111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -202,8 +202,9 @@\n             }\r\n               \r\n             else if(algo_selected == \"Heapsort\")\r\n             {\r\n+                $(\"#stop\").prop('disabled', true);\r\n                 pauseHandler();\r\n                 await heapsort();\r\n             }\r\n                 \r\n"
+                },
+                {
+                    "date": 1655405102222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,13 @@\n var halt =false;\r\n \r\n var sort_btn=document.getElementsByClassName(\"algo-btn\");\r\n \r\n+function checkPause()\r\n+{\r\n+    while(run==false)\r\n+    await sleep(1);\r\n+}\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n"
+                },
+                {
+                    "date": 1655405126630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,13 +34,9 @@\n var halt =false;\r\n \r\n var sort_btn=document.getElementsByClassName(\"algo-btn\");\r\n \r\n-function checkPause()\r\n-{\r\n-    while(run==false)\r\n-    await sleep(1);\r\n-}\r\n+\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n@@ -271,4 +267,9 @@\n             }\r\n         }\r\n     });\r\n });\r\n+function checkPause()\r\n+{\r\n+    while(run==false)\r\n+    await sleep(1);\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1655405174212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,15 +28,19 @@\n var element_width_max;\r\n var margin_element;\r\n \r\n var algo_selected;\r\n-var run=false;\r\n+var run=true;\r\n var first=true;\r\n var halt =false;\r\n \r\n var sort_btn=document.getElementsByClassName(\"algo-btn\");\r\n \r\n-\r\n+function checkPause()\r\n+{\r\n+    while(run==false)\r\n+    await sleep(1);\r\n+}\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n@@ -267,9 +271,4 @@\n             }\r\n         }\r\n     });\r\n });\r\n-function checkPause()\r\n-{\r\n-    while(run==false)\r\n-    await sleep(1);\r\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1655405246387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,19 +28,15 @@\n var element_width_max;\r\n var margin_element;\r\n \r\n var algo_selected;\r\n-var run=true;\r\n+var run=false;\r\n var first=true;\r\n var halt =false;\r\n \r\n var sort_btn=document.getElementsByClassName(\"algo-btn\");\r\n \r\n-function checkPause()\r\n-{\r\n-    while(run==false)\r\n-    await sleep(1);\r\n-}\r\n+\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n"
+                },
+                {
+                    "date": 1655405473078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,8 @@\n var halt =false;\r\n \r\n var sort_btn=document.getElementsByClassName(\"algo-btn\");\r\n \r\n-\r\n function updateValues() {\r\n     array_container_width = Math.floor( $(\"#array-container\").width() );\r\n     element_width_max = Math.floor(array_container_width / 20);\r\n \r\n"
+                },
+                {
+                    "date": 1655405630904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -225,9 +225,9 @@\n        function() {\r\n       halt=true;\r\n       algo_selected=\"\";\r\n       $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n-    //   run=false;\r\n+      run=true;\r\n       const pause = document.getElementById(\"sort\");\r\n     //   run = run === true ? false : true;\r\n       pause.textContent = \"Play\";\r\n       first=true;\r\n"
+                }
+            ],
+            "date": 1655140758095,
+            "name": "Commit-0",
+            "content": "const MIN_SIZE = 4;\r\nconst MAX_SIZE = 64;\r\nconst DEFAULT_SIZE = 32;\r\n\r\nconst MIN_SPEED = 1;\r\nconst MAX_SPEED = 4;\r\nconst DEFAULT_SPEED = 3;\r\n\r\nconst MIN = 20;\r\nconst MAX = 300;\r\n\r\nconst WAITING_TIME = 100;\r\n\r\nconst UNSORTED = 'deepskyblue';\r\nconst SORTED = 'mediumspringgreen';\r\nconst COMPARE = 'crimson';\r\nconst SELECTED = 'blueviolet';\r\nconst LEFT = 'gold';\r\nconst RIGHT = 'orangered';\r\n\r\nvar size;\r\nvar delay;\r\n\r\nvar arr = [];\r\n\r\nvar array_container_width;\r\nvar element_width;\r\nvar element_width_max;\r\nvar margin_element;\r\n\r\nvar algo_selected;\r\n\r\nfunction updateValues() {\r\n    array_container_width = Math.floor( $(\"#array-container\").width() );\r\n    element_width_max = Math.floor(array_container_width / 20);\r\n\r\n    margin_element = 2;\r\n    if( parseInt( $(window).width() ) < 1200 )\r\n        margin_element = 1;\r\n}\r\n\r\nfunction findElementWidth() {\r\n    element_width = Math.floor(array_container_width / size);\r\n    element_width -= 2 * margin_element;\r\n\r\n    if(element_width > element_width_max)\r\n        element_width = element_width_max;\r\n}\r\n\r\nfunction createArray() {\r\n    arr = [];\r\n    $(\"#array\").html('');\r\n\r\n    for(var i = 0; i < size; i++) {\r\n        var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;\r\n        arr.push(n);\r\n        \r\n        var $element = $('<div>');\r\n        $element.attr('id', \"e\" + i);\r\n        $element.attr('class', \"element\");\r\n        $element.css('background-color', UNSORTED);\r\n        $element.css('width', element_width.toString() + 'px');\r\n        $element.css('height', n.toString() + 'px');\r\n        $element.css('margin-left', margin_element + 'px');\r\n        $element.css('margin-right', margin_element + 'px');\r\n        $element.appendTo(\"#array\");\r\n    }\r\n}\r\n\r\nfunction setHeight(id, height) {\r\n    $(\"#e\" + id).css('height', height);\r\n}\r\n\r\nfunction setColor(id, color) {\r\n    $(\"#e\" + id).css('background-color', color);\r\n}\r\n\r\nfunction setColorRange(p, r, color) {\r\n    for(var i = p; i <= r; i++)\r\n        $(\"#e\" + i).css('background-color', color);\r\n}\r\n\r\nfunction swap(a, b) {\r\n    var temp = arr[a];\r\n    arr[a] = arr[b];\r\n    arr[b] = temp;\r\n\r\n    var h1 = $(\"#e\" + a).css('height');\r\n    var h2 = $(\"#e\" + b).css('height');\r\n\r\n    setHeight(a, h2);\r\n    setHeight(b, h1);\r\n}\r\n\r\nfunction disableOthers() {\r\n    $(\"#sort\").prop('disabled', true);\r\n    $(\"#randomize\").prop('disabled', true);\r\n    $(\"#size-slider\").prop('disabled', true);\r\n}\r\n\r\nfunction enableOthers() {\r\n    $(\"#sort\").prop('disabled', false);\r\n    $(\"#randomize\").prop('disabled', false);\r\n    $(\"#size-slider\").prop('disabled', false);\r\n}\r\n\r\nfunction sleep(ms) {\r\n    return new Promise(resolve => setTimeout(resolve, ms));\r\n}\r\n\r\n$(document).ready(function() {\r\n    $(\"#size-slider\").attr('min', MIN_SIZE);\r\n    $(\"#size-slider\").attr('max', MAX_SIZE);\r\n    $(\"#size-slider\").attr('value', DEFAULT_SIZE);\r\n\r\n    $(\"#speed-slider\").attr('min', MIN_SPEED);\r\n    $(\"#speed-slider\").attr('max', MAX_SPEED);\r\n    $(\"#speed-slider\").attr('value', DEFAULT_SPEED);\r\n\r\n    size = DEFAULT_SIZE;\r\n    delay = WAITING_TIME * Math.pow(2, MAX_SPEED - DEFAULT_SPEED);\r\n\r\n    updateValues();\r\n    \r\n    findElementWidth();\r\n    createArray();\r\n\r\n    $(\"#randomize\").click(\r\n        function() {\r\n            createArray();\r\n        }\r\n    );\r\n\r\n    $(\".algo-btn\").click(\r\n        function() {\r\n            algo_selected = $(this).html();\r\n\r\n            $(\".algo-btn-active\").removeClass('algo-btn-active');\r\n            $(this).addClass('algo-btn-active');\r\n\r\n            $(\"#no-algo-warning\").removeClass('display-flex');\r\n            $(\"#no-algo-warning\").addClass('display-none');\r\n        }\r\n    );\r\n\r\n    $(\"#sort\").click(\r\n        async function() {\r\n            disableOthers();\r\n\r\n            setColorRange(0, size - 1, UNSORTED);\r\n\r\n            if(algo_selected == \"Bubble Sort\")\r\n                await bubbleSort();\r\n            else if(algo_selected == \"Selection Sort\")\r\n                await selectionSort();\r\n            else if(algo_selected == \"Insertion Sort\")\r\n                await insertionSort();\r\n            else  if(algo_selected == \"Merge Sort\")\r\n                await mergeSort(0, size - 1);\r\n            else if(algo_selected == \"Quicksort\")\r\n                await quicksort(0, size - 1);\r\n            else if(algo_selected == \"Heapsort\")\r\n                await heapsort();\r\n            else {\r\n                $(\"#no-algo-warning\").removeClass('display-none');\r\n                $(\"#no-algo-warning\").addClass('display-flex');\r\n            }\r\n\r\n            enableOthers();\r\n        }\r\n    );\r\n\r\n    $(\"#stop\").click(\r\n        async function() {\r\n            disableOthers();\r\n\r\n            setColorRange(0, size - 1, UNSORTED);\r\n\r\n         \r\n        }\r\n    );\r\n\r\n    $(\"#size-slider\").on('input', function() {\r\n        size = $(this).val();\r\n\r\n        findElementWidth();\r\n        createArray();\r\n    });\r\n\r\n    $(\"#speed-slider\").on('input', function() {\r\n        delay = WAITING_TIME * Math.pow(2, MAX_SPEED - $(this).val());\r\n    });\r\n\r\n    $(window).resize(function() {\r\n        if(array_container_width != Math.floor( $(\"#array-container\").width() )) {\r\n            updateValues();\r\n\r\n            findElementWidth();\r\n\r\n            for(var i = 0; i < size; i++) {\r\n                $(\"#e\" + i).css('width', element_width.toString() + 'px');\r\n                $(\"#e\" + i).css('margin-left', margin_element + 'px');\r\n                $(\"#e\" + i).css('margin-right', margin_element + 'px');\r\n            }\r\n        }\r\n    });\r\n});\r\n"
+        }
+    ]
+}

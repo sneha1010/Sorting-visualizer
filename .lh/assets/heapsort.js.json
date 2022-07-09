@@ -1,0 +1,38 @@
+{
+    "sourceFile": "assets/heapsort.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1655403867633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655403952601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,10 @@\n     return 2 * i + 2;\r\n }\r\n \r\n async function maxHeapify(i) {\r\n+    while(run==false)\r\n+    await sleep(1);\r\n     var l = left(i);\r\n     var r = right(i);\r\n     var largest, temp;\r\n \r\n"
+                },
+                {
+                    "date": 1655403999665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,14 +8,14 @@\n     return 2 * i + 2;\r\n }\r\n \r\n async function maxHeapify(i) {\r\n-    while(run==false)\r\n-    await sleep(1);\r\n+   \r\n     var l = left(i);\r\n     var r = right(i);\r\n     var largest, temp;\r\n-\r\n+    while(run==false)\r\n+    await sleep(1);\r\n     setColor(i, COMPARE);\r\n     if(l < heapSize)\r\n         setColor(l, LEFT);\r\n     if(r < heapSize)\r\n"
+                },
+                {
+                    "date": 1655404073873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,12 @@\n    \r\n     var l = left(i);\r\n     var r = right(i);\r\n     var largest, temp;\r\n+   \r\n+    setColor(i, COMPARE);\r\n     while(run==false)\r\n     await sleep(1);\r\n-    setColor(i, COMPARE);\r\n     if(l < heapSize)\r\n         setColor(l, LEFT);\r\n     if(r < heapSize)\r\n         setColor(r, RIGHT);\r\n"
+                },
+                {
+                    "date": 1655404087567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,16 +31,16 @@\n         largest = i;\r\n \r\n     if(r < heapSize && arr[r] > arr[largest])\r\n         largest = r;\r\n-\r\n+        while(run==false)\r\n+        await sleep(1);\r\n     if(l < heapSize)\r\n         setColor(l, UNSORTED);\r\n     if(r < heapSize)\r\n         setColor(r, UNSORTED);\r\n     setColor(largest, SELECTED);\r\n-    while(run==false)\r\n-    await sleep(1);\r\n+  \r\n     await sleep(delay);\r\n \r\n     if(largest != i) {\r\n         swap(i, largest);\r\n"
+                },
+                {
+                    "date": 1655404938412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n     if(l < heapSize)\r\n         setColor(l, LEFT);\r\n     if(r < heapSize)\r\n         setColor(r, RIGHT);\r\n-        while(run==false)\r\n-        await sleep(1);\r\n+      \r\n+        \r\n     await sleep(delay);\r\n \r\n     if(l < heapSize && arr[l] > arr[i])\r\n         largest = l;\r\n"
+                }
+            ],
+            "date": 1655403867633,
+            "name": "Commit-0",
+            "content": "var heapSize;\r\n\r\nfunction left(i) {\r\n    return 2 * i + 1;\r\n}\r\n\r\nfunction right(i) {\r\n    return 2 * i + 2;\r\n}\r\n\r\nasync function maxHeapify(i) {\r\n    var l = left(i);\r\n    var r = right(i);\r\n    var largest, temp;\r\n\r\n    setColor(i, COMPARE);\r\n    if(l < heapSize)\r\n        setColor(l, LEFT);\r\n    if(r < heapSize)\r\n        setColor(r, RIGHT);\r\n        while(run==false)\r\n        await sleep(1);\r\n    await sleep(delay);\r\n\r\n    if(l < heapSize && arr[l] > arr[i])\r\n        largest = l;\r\n    else\r\n        largest = i;\r\n\r\n    if(r < heapSize && arr[r] > arr[largest])\r\n        largest = r;\r\n\r\n    if(l < heapSize)\r\n        setColor(l, UNSORTED);\r\n    if(r < heapSize)\r\n        setColor(r, UNSORTED);\r\n    setColor(largest, SELECTED);\r\n    while(run==false)\r\n    await sleep(1);\r\n    await sleep(delay);\r\n\r\n    if(largest != i) {\r\n        swap(i, largest);\r\n        setColor(largest, COMPARE);\r\n        setColor(i, SELECTED);\r\n        await sleep(delay);\r\n\r\n        setColor(largest, UNSORTED);\r\n        setColor(i, UNSORTED);\r\n\r\n        await maxHeapify(largest);\r\n    }\r\n    else\r\n        setColor(i, UNSORTED);\r\n}\r\n\r\nasync function buildMaxHeap() {\r\n    heapSize = size;\r\n\r\n    for(var i = Math.floor(size / 2) - 1; i >= 0; i--)\r\n        await maxHeapify(i);\r\n}\r\n\r\nasync function heapsort() {\r\n    await sleep(delay);\r\n\r\n    await buildMaxHeap();\r\n\r\n    for(var i = size - 1; i > 0; i--) {\r\n        setColor(0, SELECTED);\r\n        setColor(i, COMPARE);\r\n        await sleep(delay);\r\n        while(run==false)\r\n        await sleep(1);\r\n        setColor(0, COMPARE);\r\n        setColor(i, SELECTED);\r\n        swap(0, i);\r\n        heapSize--;\r\n        await sleep(delay);\r\n\r\n        setColor(i, SORTED);\r\n\r\n        await maxHeapify(0);\r\n    }\r\n\r\n    setColor(0, SORTED);\r\n}\r\n"
+        }
+    ]
+}

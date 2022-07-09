@@ -1,0 +1,46 @@
+{
+    "sourceFile": "assets/merge-sort.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1655319203280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655319253754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,10 @@\n         else {\r\n             arr[k] = R[j];\r\n             j++;\r\n         }\r\n-\r\n+        while(run==false)\r\n+    await sleep(1);\r\n         setHeight(k, arr[k]);\r\n         setColor(k, SELECTED);\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1655319326505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,12 @@\n     R.push(Infinity);\r\n \r\n     i = 0;\r\n     j = 0;\r\n-\r\n+    if(halt){\r\n+        setColorRange(0, size - 1, UNSORTED);\r\n+        break;\r\n+       }\r\n     for(var k = p; k <= r; k++) {\r\n         await sleep(delay);\r\n \r\n         if(L[i] <= R[j]) {\r\n"
+                },
+                {
+                    "date": 1655319336663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     i = 0;\r\n     j = 0;\r\n     if(halt){\r\n         setColorRange(0, size - 1, UNSORTED);\r\n-        break;\r\n+        return;\r\n        }\r\n     for(var k = p; k <= r; k++) {\r\n         await sleep(delay);\r\n \r\n"
+                },
+                {
+                    "date": 1655319481316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,5 +60,6 @@\n         await mergeSort(q + 1, r);\r\n \r\n         await merge(p, q, r);\r\n     }\r\n+    halt=0;\r\n }\r\n"
+                },
+                {
+                    "date": 1655400713056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,12 +21,9 @@\n     R.push(Infinity);\r\n \r\n     i = 0;\r\n     j = 0;\r\n-    if(halt){\r\n-        setColorRange(0, size - 1, UNSORTED);\r\n-        return;\r\n-       }\r\n+   \r\n     for(var k = p; k <= r; k++) {\r\n         await sleep(delay);\r\n \r\n         if(L[i] <= R[j]) {\r\n@@ -60,6 +57,6 @@\n         await mergeSort(q + 1, r);\r\n \r\n         await merge(p, q, r);\r\n     }\r\n-    halt=0;\r\n+    \r\n }\r\n"
+                },
+                {
+                    "date": 1655405003246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,9 @@\n     var n1 = q - p + 1;\r\n     var n2 = r - q;\r\n     var L = [];\r\n     var R = [];\r\n-    while(run==false)\r\n-    await sleep(1);\r\n+    checkPause();\r\n     for(i = 0; i < n1; i++) {\r\n         L.push(arr[p + i]);\r\n         setColor(p + i, LEFT);\r\n     }\r\n@@ -33,10 +32,9 @@\n         else {\r\n             arr[k] = R[j];\r\n             j++;\r\n         }\r\n-        while(run==false)\r\n-    await sleep(1);\r\n+        checkPause();\r\n         setHeight(k, arr[k]);\r\n         setColor(k, SELECTED);\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1655405240791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n     var n1 = q - p + 1;\r\n     var n2 = r - q;\r\n     var L = [];\r\n     var R = [];\r\n-    checkPause();\r\n+    while(run==false)\r\n+    await sleep(1);\r\n     for(i = 0; i < n1; i++) {\r\n         L.push(arr[p + i]);\r\n         setColor(p + i, LEFT);\r\n     }\r\n@@ -32,9 +33,10 @@\n         else {\r\n             arr[k] = R[j];\r\n             j++;\r\n         }\r\n-        checkPause();\r\n+        while(run==false)\r\n+    await sleep(1);\r\n         setHeight(k, arr[k]);\r\n         setColor(k, SELECTED);\r\n     }\r\n \r\n"
+                }
+            ],
+            "date": 1655319203280,
+            "name": "Commit-0",
+            "content": "async function merge(p, q, r) {\r\n    await sleep(delay);\r\n\r\n    var i, j;\r\n    var n1 = q - p + 1;\r\n    var n2 = r - q;\r\n    var L = [];\r\n    var R = [];\r\n    while(run==false)\r\n    await sleep(1);\r\n    for(i = 0; i < n1; i++) {\r\n        L.push(arr[p + i]);\r\n        setColor(p + i, LEFT);\r\n    }\r\n    for(j = 0; j < n2; j++) {\r\n        R.push(arr[q + j + 1]);\r\n        setColor(q + j + 1, RIGHT);\r\n    }\r\n\r\n    L.push(Infinity);\r\n    R.push(Infinity);\r\n\r\n    i = 0;\r\n    j = 0;\r\n\r\n    for(var k = p; k <= r; k++) {\r\n        await sleep(delay);\r\n\r\n        if(L[i] <= R[j]) {\r\n            arr[k] = L[i];\r\n            i++;\r\n        }\r\n        else {\r\n            arr[k] = R[j];\r\n            j++;\r\n        }\r\n\r\n        setHeight(k, arr[k]);\r\n        setColor(k, SELECTED);\r\n    }\r\n\r\n    await sleep(delay);\r\n\r\n    if(p == 0 && r == size - 1)\r\n        setColorRange(p, r, SORTED);\r\n    else\r\n        setColorRange(p, r, UNSORTED);\r\n}\r\n\r\nasync function mergeSort(p, r) {\r\n    if(p < r) {\r\n        var q = Math.floor( (p + r) / 2 );\r\n\r\n        await mergeSort(p, q);\r\n\r\n        await mergeSort(q + 1, r);\r\n\r\n        await merge(p, q, r);\r\n    }\r\n}\r\n"
+        }
+    ]
+}

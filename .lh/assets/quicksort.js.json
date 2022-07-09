@@ -1,0 +1,26 @@
+{
+    "sourceFile": "assets/quicksort.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1655402335807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655402430700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,10 @@\n         swap(i + 1, r);\r\n         setColor(r, RIGHT);\r\n         setColor(i + 1, SELECTED);\r\n     }\r\n-\r\n+    while(run==false)\r\n+    await sleep(1);\r\n     await sleep(delay);\r\n \r\n     setColorRange(p, r, UNSORTED);\r\n \r\n"
+                },
+                {
+                    "date": 1655402546159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n     while(run==false)\r\n     await sleep(1);\r\n     for(var j = p; j < r; j++) {\r\n         await sleep(delay);\r\n-\r\n+        while(run==false)\r\n+        await sleep(1);\r\n         if(arr[j] <= arr[r]) {\r\n             i++;\r\n             swap(i, j);\r\n             setColor(j, RIGHT);\r\n"
+                }
+            ],
+            "date": 1655402335807,
+            "name": "Commit-0",
+            "content": "async function partition(p, r) {\r\n    await sleep(delay);\r\n\r\n    var i = p - 1;\r\n    setColor(r, SELECTED);\r\n    while(run==false)\r\n    await sleep(1);\r\n    for(var j = p; j < r; j++) {\r\n        await sleep(delay);\r\n\r\n        if(arr[j] <= arr[r]) {\r\n            i++;\r\n            swap(i, j);\r\n            setColor(j, RIGHT);\r\n            setColor(i, LEFT);\r\n        }\r\n        else\r\n            setColor(j, RIGHT);\r\n    }\r\n\r\n    if(i + 1 < r) {\r\n        await sleep(delay);\r\n\r\n        swap(i + 1, r);\r\n        setColor(r, RIGHT);\r\n        setColor(i + 1, SELECTED);\r\n    }\r\n\r\n    await sleep(delay);\r\n\r\n    setColorRange(p, r, UNSORTED);\r\n\r\n    return i + 1;\r\n}\r\n\r\nasync function quicksort(p, r) {\r\n    if(p < r) {\r\n        var q = await partition(p, r);\r\n\r\n        await quicksort(p, q - 1);\r\n\r\n        setColorRange(p, q, SORTED);\r\n        await quicksort(q + 1, r);\r\n\r\n        setColorRange(q + 1, r, SORTED);\r\n    }\r\n\r\n    if(p == 0 && r == size - 1)\r\n        await sleep(delay);\r\n}\r\n"
+        }
+    ]
+}
