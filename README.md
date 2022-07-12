@@ -1,14 +1,15 @@
 # Sorting Visualizer
 
 **A static website for visualizing different comparison based sorting algorithms.**
-Implemented algorithms:
+# Implemented algorithms:
 
-1.Bubble sort
-2.Selection sort
-3.Insertion sort
-4.Merge sort
-5.Quick sort
-6.Heap sort
+1.Bubble sort <br/>
+2.Selection sort  <br/>
+3.Insertion sort  <br/>
+4.Merge sort  <br/>
+5.Quick sort  <br/>
+6.Heap sort  <br/>
+ <br/>
 [Website Link](https://sortingalgos-visualizer.netlify.app/ "Sorting Visualizer")
 
 # Preview
