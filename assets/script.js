@@ -2,7 +2,7 @@ const MIN_SIZE = 4;
 const MAX_SIZE = 64;
 const DEFAULT_SIZE = 32;
 
-const MIN_SPEED = 1;
+const MIN_SPEED = 0.1;
 const MAX_SPEED = 4;
 const DEFAULT_SPEED = 3;
 
