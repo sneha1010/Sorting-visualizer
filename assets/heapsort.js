@@ -38,9 +38,10 @@ async function maxHeapify(i) {
     await sleep(delay);
 
     if(largest != i) {
-        swap(i, largest);
-        setColor(largest, COMPARE);
+         setColor(largest, COMPARE);
         setColor(i, SELECTED);
+        swap(i, largest);
+       
         await sleep(delay);
 
         setColor(largest, UNSORTED);
