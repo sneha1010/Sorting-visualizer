@@ -9,7 +9,7 @@ async function insertionSort() {
 
     for(i = 1; i < size; i++) {
         await sleep(delay);
-      
+
         setColor(i, SELECTED);
         await sleep(delay);
 
@@ -17,32 +17,20 @@ async function insertionSort() {
         key = arr[i];
 
         while(j >= 0 && arr[j] > key) {
-           
             setColor(j, COMPARE);
             await sleep(delay);
-            while(run==false)
-            await sleep(1);
+
             swap(j, j + 1);
-            if(halt){
-                setColorRange(0, size - 1, UNSORTED);
-                break;
-               }
             setColor(j, SELECTED);
             setColor(j + 1, COMPARE);
             await sleep(delay);
-            while(run==false)
-            await sleep(1);
+
             setColor(j + 1, SORTED);
             await sleep(delay);
 
             j--;
         }
-        if(halt){
-            setColorRange(0, size - 1, UNSORTED);
-            break;
-           }
-           
+
         setColor(j + 1, SORTED);
     }
-    halt=0;
 }

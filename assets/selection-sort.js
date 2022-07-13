@@ -1,6 +1,6 @@
 async function selectionSort() {
     var i, j, min_idx;
-    halt=false;
+
     for(i = 0; i < size - 1; i++) {
         await sleep(delay);
 
@@ -9,18 +9,11 @@ async function selectionSort() {
 
         for(j = i + 1; j < size; j++) {
             await sleep(delay);
-            while(run==false)
-            await sleep(1);
-            if(halt){
-                setColorRange(0, size - 1, UNSORTED);
-                break;
-               }
+
             setColor(j, COMPARE);
 
             await sleep(delay);
-            while(run==false)
-            await sleep(1);
-           
+
             if(arr[j] < arr[min_idx]) {
                 setColor(min_idx, UNSORTED);
                 min_idx = j;
@@ -30,10 +23,7 @@ async function selectionSort() {
             else
                 setColor(j, UNSORTED);
         }
-        if(halt){
-            setColorRange(0, size - 1, UNSORTED);
-            break;
-           }
+
         await sleep(delay);
 
         if(min_idx != i) {
@@ -45,15 +35,10 @@ async function selectionSort() {
             swap(min_idx, i);
             await sleep(delay);
         }
-        while(run==false)
-        await sleep(1);
-       
+
         setColor(min_idx, UNSORTED);
         setColor(i, SORTED);
     }
-    if(halt==false){
-        setColor(size - 1, SORTED);
-    }
-   
-    halt=0;
+
+    setColor(size - 1, SORTED);
 }

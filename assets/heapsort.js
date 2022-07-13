@@ -9,19 +9,16 @@ function right(i) {
 }
 
 async function maxHeapify(i) {
-   
     var l = left(i);
     var r = right(i);
     var largest, temp;
-   
+
     setColor(i, COMPARE);
-    while(run==false)
-    await sleep(1);
     if(l < heapSize)
         setColor(l, LEFT);
     if(r < heapSize)
         setColor(r, RIGHT);
-      
+
     await sleep(delay);
 
     if(l < heapSize && arr[l] > arr[i])
@@ -31,14 +28,13 @@ async function maxHeapify(i) {
 
     if(r < heapSize && arr[r] > arr[largest])
         largest = r;
-        while(run==false)
-        await sleep(1);
+
     if(l < heapSize)
         setColor(l, UNSORTED);
     if(r < heapSize)
         setColor(r, UNSORTED);
     setColor(largest, SELECTED);
-  
+
     await sleep(delay);
 
     if(largest != i) {
@@ -72,8 +68,7 @@ async function heapsort() {
         setColor(0, SELECTED);
         setColor(i, COMPARE);
         await sleep(delay);
-        while(run==false)
-        await sleep(1);
+
         setColor(0, COMPARE);
         setColor(i, SELECTED);
         swap(0, i);

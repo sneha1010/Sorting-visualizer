@@ -3,12 +3,10 @@ async function partition(p, r) {
 
     var i = p - 1;
     setColor(r, SELECTED);
-    while(run==false)
-    await sleep(1);
+
     for(var j = p; j < r; j++) {
         await sleep(delay);
-        while(run==false)
-        await sleep(1);
+
         if(arr[j] <= arr[r]) {
             i++;
             swap(i, j);
@@ -26,8 +24,7 @@ async function partition(p, r) {
         setColor(r, RIGHT);
         setColor(i + 1, SELECTED);
     }
-    while(run==false)
-    await sleep(1);
+
     await sleep(delay);
 
     setColorRange(p, r, UNSORTED);

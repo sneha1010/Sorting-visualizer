@@ -51,11 +51,11 @@ body {
 }
 
 #algo-container {
-    max-width: 1032px;
-    margin: 0.5em auto;
+    max-width: 1000px;
+    margin: 1em auto;
 }
 
-.algo-btn, #sort, #stop,#randomize {
+.algo-btn, #sort, #randomize {
     background-color: #222;
     margin: 5px 2px;
     padding: 5px 20px;
@@ -69,15 +69,9 @@ body {
     background-color: #ccc;
     color: #222;
 }
-.algo-btn:disabled{
-    /* opacity: 0.8; */
-    /* cursor: not-allowed; */
-    transition: all 100s ease-in-out;
-}
+
 #sort {
-    /* float: right; */
-    width: 90px;
-    margin: 5px;
+    float: right;
     background-color: mediumspringgreen;
     color: black;
 }
@@ -90,19 +84,10 @@ body {
     opacity: 0.5;
     cursor: not-allowed;
 }
-#stop {
-    /* float: right; */
-    margin: 5px;
-    background-color: rgb(241, 40, 40);
-    color: black;
-}
-#stop:hover, #randomize:hover {
-    opacity: 0.8;
-}
-
-#stop:disabled, #randomize:disabled {
-    opacity: 0.5;
+.algo-btn:disabled{
+    /* opacity: 0.8; */
     cursor: not-allowed;
+    transition: all 100s ease-in-out;
 }
 #change-container {
     max-width: 500px;

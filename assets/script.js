@@ -29,11 +29,6 @@ var element_width_max;
 var margin_element;
 
 var algo_selected;
-var run=false;
-var first=true;
-var halt =false;
-
-var sort_btn=document.getElementsByClassName("algo-btn");
 
 function updateValues() {
     array_container_width = Math.floor( $("#array-container").width() );
@@ -59,7 +54,7 @@ function createArray() {
     for(var i = 0; i < size; i++) {
         var n = Math.floor( Math.random() * (MAX - MIN + 1) ) + MIN;
         arr.push(n);
-    //   $("#bar").html(n);
+        
         var $element = $('<div>');
         $element.attr('id', "e" + i);
         $element.attr('class', "element");
@@ -68,16 +63,12 @@ function createArray() {
         $element.css('height', n.toString() + 'px');
         $element.css('margin-left', margin_element + 'px');
         $element.css('margin-right', margin_element + 'px');
-        // $element.innerHTML(n);
         $element.appendTo("#array");
-      
     }
 }
 
 function setHeight(id, height) {
     $("#e" + id).css('height', height);
-    // $("#e" + id).textContent = "1";
-    // $("#e" + id).innerHTML=height;
 }
 
 function setColor(id, color) {
@@ -88,16 +79,7 @@ function setColorRange(p, r, color) {
     for(var i = p; i <= r; i++)
         $("#e" + i).css('background-color', color);
 }
-function pauseHandler()
-{
-    const pause = document.getElementById("sort");
-    run = run === true ? false : true;
-    pause.textContent = run === true ? "Pause" : "Play";
-}
-async function pauseButton() {
-    while (run == false) await sleep(1);
-    return;
-  }
+
 function swap(a, b) {
     var temp = arr[a];
     arr[a] = arr[b];
@@ -111,17 +93,17 @@ function swap(a, b) {
 }
 
 function disableOthers() {
-    $(".algo-btn").prop('disabled', true);
-   
+    $("#sort").prop('disabled', true);
     $("#randomize").prop('disabled', true);
     $("#size-slider").prop('disabled', true);
+    $(".algo-btn").prop('disabled', true);
 }
 
 function enableOthers() {
-    $(".algo-btn").prop('disabled', false);
     $("#sort").prop('disabled', false);
     $("#randomize").prop('disabled', false);
     $("#size-slider").prop('disabled', false);
+    $(".algo-btn").prop('disabled', false);
 }
 
 function sleep(ms) {
@@ -154,10 +136,10 @@ $(document).ready(function() {
     $(".algo-btn").click(
         function() {
             algo_selected = $(this).html();
-            
+
             $(".algo-btn-active").removeClass('algo-btn-active');
             $(this).addClass('algo-btn-active');
-      
+
             $("#no-algo-warning").removeClass('display-flex');
             $("#no-algo-warning").addClass('display-none');
         }
@@ -165,83 +147,31 @@ $(document).ready(function() {
 
     $("#sort").click(
         async function() {
-            if(first){
-                first=false;
-             
-           run=false;
             disableOthers();
 
             setColorRange(0, size - 1, UNSORTED);
-          
-            if(algo_selected == "Bubble Sort"){
-                pauseHandler();
+
+            if(algo_selected == "Bubble Sort")
                 await bubbleSort();
-            }
-               
-            else if(algo_selected == "Selection Sort"){
-                pauseHandler();
+            else if(algo_selected == "Selection Sort")
                 await selectionSort();
-            }
-              
-            else if(algo_selected == "Insertion Sort"){
-                pauseHandler();
+            else if(algo_selected == "Insertion Sort")
                 await insertionSort();
-            }
-                
             else  if(algo_selected == "Merge Sort")
-            {
-                $("#stop").prop('disabled', true);
-                pauseHandler();
                 await mergeSort(0, size - 1);
-            }
-               
-            else if(algo_selected == "Quicksort"){
-                $("#stop").prop('disabled', true);
-                pauseHandler();
+            else if(algo_selected == "Quicksort")
                 await quicksort(0, size - 1);
-            }
-              
             else if(algo_selected == "Heapsort")
-            {
-                $("#stop").prop('disabled', true);
-                pauseHandler();
                 await heapsort();
-            }
-                
             else {
                 $("#no-algo-warning").removeClass('display-none');
                 $("#no-algo-warning").addClass('display-flex');
-                first=true;
             }
-           
+
             enableOthers();
         }
-        else
-        pauseHandler();
-        }
     );
 
-    $("#stop").click(
-       function() {
-      halt=true;
-      algo_selected="";
-      $(".algo-btn-active").removeClass('algo-btn-active');
-      run=true;
-      const pause = document.getElementById("sort");
-    //   run = run === true ? false : true;
-      pause.textContent = "Play";
-      first=true;
-        }
-    );
- 
-    
-
-
-
-// pause.addEventListener("click", () => {
-//   run = run === true ? false : true;
-//   pause.textContent = run === true ? "Pause" : "Play";
-// });
     $("#size-slider").on('input', function() {
         size = $(this).val();
 

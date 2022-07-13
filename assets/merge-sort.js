@@ -6,8 +6,7 @@ async function merge(p, q, r) {
     var n2 = r - q;
     var L = [];
     var R = [];
-    while(run==false)
-    await sleep(1);
+
     for(i = 0; i < n1; i++) {
         L.push(arr[p + i]);
         setColor(p + i, LEFT);
@@ -22,7 +21,7 @@ async function merge(p, q, r) {
 
     i = 0;
     j = 0;
-   
+
     for(var k = p; k <= r; k++) {
         await sleep(delay);
 
@@ -34,8 +33,7 @@ async function merge(p, q, r) {
             arr[k] = R[j];
             j++;
         }
-        while(run==false)
-    await sleep(1);
+
         setHeight(k, arr[k]);
         setColor(k, SELECTED);
     }
@@ -58,5 +56,4 @@ async function mergeSort(p, r) {
 
         await merge(p, q, r);
     }
-    
 }
